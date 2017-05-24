@@ -54,6 +54,12 @@ e1 = Entry(master, text="text1")
  e1.insert(END, "insert")  # 在文本的末尾进行插入
  e1.insert(1, "insert")  # 在文本的起始位置进行插入
  ```
+ >* delete方法：删除位置位于[first,last)其中的字符，last参数可以缺省，此时删除first这个index对应的一个字符。
+ ```Python
+ |  delete(self, first, last=None)
+ |      Delete text from FIRST to LAST (not included).
+ e1.delete(0,END)  # 清楚所有文本
+ ```
  >* icursor方法：获取单行文本框控件中的光标位置
  ```Python
  |  icursor(self, index)
@@ -239,12 +245,21 @@ t1 = Text(master,fg="red")
  t1.insert(END, "insert")  # 在文本域的末尾进行插入
  t1.insert(1.0, "insert")  # 在文本域的起始位置进行插入
  ```
+ >* delete方法：删除[index1，index2）之间的文本内容，index2可以缺省，表示的是删除index1对应位置的一个字符。
+ ```Python
+ |  de(self, index, chars, *args)
+ |      Insert CHARS before the characters at INDEX. An additional
+ |      tag can be given in ARGS. Additional CHARS and tags can follow in ARGS.
+ t1.insert(END, "insert")  # 在文本域的末尾进行插入
+ t1.insert(1.0, "insert")  # 在文本域的起始位置进行插入
+ ```
 * Misc类：Tkinter库中的Internal class.Misc类是一个为内置控件定义了一些基本通用方法的Base class。
 >* cget方法：获取某一个key对应的键值，返回值为一个string类型
 ```Python
- |  cget(self, key)
- |      Return the resource value for a KEY given as string.
- self.t1.cget("fg")
+ |  delete(self, index1, index2=None)
+ |      Delete the characters between INDEX1 and INDEX2 (not included).
+ self.t1.delete(1.0, END)  # 清楚文本域内的所有内容
+ self.t1.delete(1.0, 2.0)  # 清楚文本域的第一行所有内容
  >>red
 ```
 >* configure方法：配置控件属性，具体实现同初始化传参。
