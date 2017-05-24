@@ -213,13 +213,13 @@ t1 = Text(master,fg="red")
  t1.get(1.0)  # 获取文本域中第一个字符
  ```
  >* index方法：返回index索引所对应的行号
-  ```Python
+ ```Python
  |  index(self, index)
  |      Return the index in the form line.char for INDEX.
  ti.index(END)  # 返回文本域总的行数
  ```
  >* insert方法：以字符串的形式向文本域中插入文本，位置位于index之前
-  ```Python
+ ```Python
  |  insert(self, index, chars, *args)
  |      Insert CHARS before the characters at INDEX. An additional
  |      tag can be given in ARGS. Additional CHARS and tags can follow in ARGS.
@@ -227,7 +227,7 @@ t1 = Text(master,fg="red")
  t1.insert(1.0, "insert")  # 在文本域的起始位置进行插入
  ```
 * Misc类：Tkinter库中的Internal class.Misc类是一个为内置控件定义了一些基本通用方法的Base class。
- >* cget方法：获取某一个key对应的键值，返回值为一个string类型
+>* cget方法：获取某一个key对应的键值，返回值为一个string类型
 ```Python
  |  cget(self, key)
  |      Return the resource value for a KEY given as string.
