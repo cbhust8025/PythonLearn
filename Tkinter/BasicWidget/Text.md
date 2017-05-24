@@ -36,12 +36,25 @@ e1 = Entry(master, text="text1")
  ```
 >* \*\*kw:作用同cnf，在cnf中不愿意使用字典格式来进行传参，可以使用自定义参数，比如说cnf中的```{"fg":"red"}```，我们使用\*\*kw的自定义参数可以写成```fg="red"```，效果是等同的。
  ### 进阶操作
- * Entry类中的get方法：获取单行文本框控件中的文本内容
+ * Entry类中的
+ >* get方法：获取单行文本框控件中的文本内容
  ```Python
  |  get(self)
  |      Return the text.
  ```
- * Entry类中的icursor方法：获取单行文本框控件中的光标位置
+ >* index方法：获取当前位置光标的index(一般以整数表示，只有一行，所以整数表示的是列数，0,1都表示第一个字符)
+ ```Python
+ |  index(self, index)
+ |      Return position of cursor.
+ ```
+ >* insert方法：以字符串的形式向文本域中插入文本，位置位于index之前
+ ```Python
+ |  insert(self, index, string)
+ |      Insert STRING at INDEX.
+ e1.insert(END, "insert")  # 在文本的末尾进行插入
+ e1.insert(1, "insert")  # 在文本的起始位置进行插入
+ ```
+ >* icursor方法：获取单行文本框控件中的光标位置
  ```Python
  |  icursor(self, index)
  |      Insert cursor at INDEX.
