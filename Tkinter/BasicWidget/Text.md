@@ -204,21 +204,21 @@ t1 = Text(master,fg="red")
  ```
  >* \*\*kw:作用同cnf，在cnf中不愿意使用字典格式来进行传参，可以使用自定义参数，比如说cnf中的```{"text":"Text1"}```，我们使用\*\*kw的自定义参数可以写成```text="Text1"```，效果是等同的。
  ### 进阶操作
- * Text类：文本域控件自带了很多方法，其中很关键的一个概念叫做index，也就是文本域中的每个字符的索引，一般使用的小数来进行索引（ex:1.2代表的是第一行的第三个字符，2.0代表的是第二行第一个字符，1.0以下比如说0.5在效果上等同于1.0），此外我们有tk库中的常量**END**表示文本域的最后一个位置；使用的是小数来进行实现其中常用的方法有以下一些：
-  >* get方法：获取[index1，index2）之间的文本内容，index2可以缺省，表示的是获取index1对应位置的一个字符。
-  ```Python
+* Text类：文本域控件自带了很多方法，其中很关键的一个概念叫做index，也就是文本域中的每个字符的索引，一般使用的小数来进行索引（ex:1.2代表的是第一行的第三个字符，2.0代表的是第二行第一个字符，1.0以下比如说0.5在效果上等同于1.0），此外我们有tk库中的常量**END**表示文本域的最后一个位置；使用的是小数来进行实现其中常用的方法有以下一些：
+ >* get方法：获取[index1，index2）之间的文本内容，index2可以缺省，表示的是获取index1对应位置的一个字符。
+ ```Python
  |  get(self, index1, index2=None)
  |      Return the text from INDEX1 to INDEX2 (not included).
  t1.get(1.0,END)  # 获取文本域中的所有内容
  t1.get(1.0)  # 获取文本域中第一个字符
  ```
-  >* index方法：返回index索引所对应的行号
+ >* index方法：返回index索引所对应的行号
   ```Python
  |  index(self, index)
  |      Return the index in the form line.char for INDEX.
  ti.index(END)  # 返回文本域总的行数
  ```
-  >* insert方法：以字符串的形式向文本域中插入文本，位置位于index之前
+ >* insert方法：以字符串的形式向文本域中插入文本，位置位于index之前
   ```Python
  |  insert(self, index, chars, *args)
  |      Insert CHARS before the characters at INDEX. An additional
@@ -226,15 +226,15 @@ t1 = Text(master,fg="red")
  t1.insert(END, "insert")  # 在文本域的末尾进行插入
  t1.insert(1.0, "insert")  # 在文本域的起始位置进行插入
  ```
- * Misc类：Tkinter库中的Internal class.Misc类是一个为内置控件定义了一些基本通用方法的Base class。
-  >* cget方法：获取某一个key对应的键值，返回值为一个string类型
+* Misc类：Tkinter库中的Internal class.Misc类是一个为内置控件定义了一些基本通用方法的Base class。
+ >* cget方法：获取某一个key对应的键值，返回值为一个string类型
 ```Python
  |  cget(self, key)
  |      Return the resource value for a KEY given as string.
  self.t1.cget("fg")
  >>red
 ```
-  >* configure方法：配置控件属性，具体实现同初始化传参。
+>* configure方法：配置控件属性，具体实现同初始化传参。
 ```Python
  |  configure(self, cnf=None, **kw)
  |      Configure resources of a widget.
@@ -244,7 +244,7 @@ t1 = Text(master,fg="red")
  |      the allowed keyword arguments call the method keys.
  self.t1.configure(fg="blue")
 ```
-  >* keys方法：返回控件所有属性的一个列表。
+>* keys方法：返回控件所有属性的一个列表。
 ```Python
  |  keys(self)
  |      Return a list of all resource names of this widget.
