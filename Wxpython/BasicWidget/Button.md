@@ -156,22 +156,6 @@ class BitmapButton(Button)
 ```
 
 * 与普通的Button不同的是，BitmapButton没有label参数，取而代之的是bitmap参数，此时用到其中一个很关键的类叫做[Bitmap类](https://github.com/cbhust8025/PythonLearn/new/master/Wxpython/BasicWidget)：
-```C++
-class Bitmap(GDIObject)
- |  The wx.Bitmap class encapsulates the concept of a platform-dependent
- |  bitmap.  It can be either monochrome or colour, and either loaded from
- |  a file or created dynamically.  A bitmap can be selected into a memory
- |  device context (instance of `wx.MemoryDC`). This enables the bitmap to
- |  be copied to a window or memory device context using `wx.DC.Blit`, or
- |  to be used as a drawing surface.
- 
- |  ConvertToImage(*args, **kwargs)
- |      ConvertToImage(self) -> Image
- |      
- |      Creates a platform-independent image from a platform-dependent
- |      bitmap. This preserves mask information so that bitmaps and images can
- |      be converted back and forth without loss in that respect.
-```
 ## 4、RadioButton类
 ## 5、SpinButton类
 ## 6、ToggleButton类
