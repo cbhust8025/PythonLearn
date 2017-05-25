@@ -60,7 +60,7 @@ class AnyButton(wx._core.Control)
 
 >>参数：
 >>- event:事件位图，将当前控件与事件进行绑定，以何种方式绑定，由此参数决定，一般情况下，参数实体为：EVT_控件名称。不允许缺省
->>- handler:事件名称，一般为某个函数（不带括号）,不允许缺省
+>>- handler:事件名称，一般为某个函数（不带括号）,不允许缺省,并在调用此函数时传入event/evt参数，所以函数至少需要接受一个参数。
 >>- source:是我们要从不同的小部件中区分相同的事件类型。
 >>- id/id2:当我们有多个按钮、菜单项等id用于区分它们。
 
@@ -155,7 +155,190 @@ class BitmapButton(Button)
  |      Create and show a button with a bitmap for the label.
 ```
 
-* 与普通的Button不同的是，BitmapButton没有label参数，取而代之的是bitmap参数，此时用到其中一个很关键的类叫做[Bitmap类](https://github.com/cbhust8025/PythonLearn/new/master/Wxpython/BasicWidget)：
-## 4、RadioButton类
-## 5、SpinButton类
-## 6、ToggleButton类
+* 与普通的Button不同的是，BitmapButton没有label参数，取而代之的是bitmap参数，此时用到其中一个很关键的类叫做[Bitmap类](https://github.com/cbhust8025/PythonLearn/blob/master/Wxpython/BasicWidget/Bitmap.md)。
+```Python
+#!/usr/bin/env python
+# encoding: gbk
+'''
+BitmapButton
+'''
+
+from wx import *
+def hi(evt):
+    print "HI"
+if __name__ == "__main__":
+    root = App()  # 创建主程序
+    mainFrame = Frame(None)  # 在主程序之上建立一个一直显示的主窗口，用于与用户进行互动
+
+    bm1 = Bitmap("004545.jpg")  # 实例化位图对象
+    b1 = BitmapButton(mainFrame, bitmap=bm1)  # 与Button唯一区别为label参数换成了bitmap参数
+    b1.Bind(EVT_BUTTON, handler=hi)
+
+    mainFrame.Show()  # 显示主窗口
+    root.MainLoop()  # 使主程序一直运转
+```
+## 4、RadioButton类（用于替代C++中的RadioButton类）
+```C++
+class RadioButton(wx._core.Control)
+ |  Proxy of C++ RadioButton class
+ 
+ |  __init__(self, *args, **kwargs)
+ |      __init__(self, Window parent, int id=-1, String label=EmptyString, 
+ |          Point pos=DefaultPosition, Size size=DefaultSize, 
+ |          long style=0, Validator validator=DefaultValidator, 
+ |          String name=RadioButtonNameStr) -> RadioButton
+```
+* RadioButton类的构造函数与Button的构造函数基本一致，但是由于RadioButton的多选一功能，所以一个容器中只能选中所有实例化的RadioButton中的一个对象。
+```Python
+#!/usr/bin/env python
+# encoding: gbk
+'''
+RadioButton
+'''
+from wx import *
+if __name__ == "__main__":
+    root = App()  # 创建主程序
+    mainFrame = Frame(None)  # 在主程序之上建立一个一直显示的主窗口，用于与用户进行互动
+
+    mainFrameBoxSizer = GridSizer(3, 1)  # 将Frame划分为3行一列，也即从中间进行划分为上中下三部分。
+
+    b1 = RadioButton(mainFrame, label="rb1")
+    b2 = RadioButton(mainFrame, label="rb2")
+    b3 = RadioButton(mainFrame, label="rb3")
+
+    mainFrameBoxSizer.Add(b1)  # 向box中添加第一个控件
+    mainFrameBoxSizer.Add(b2)  # 向box中添加第二个控件
+    mainFrameBoxSizer.Add(b3)  # 向box中添加第三个控件
+
+    mainFrame.SetSizer(mainFrameBoxSizer)  # BoxSizer生效的最后一个步骤，依附的容器调用SetSizer方法。
+    mainFrame.Show()  # 显示主窗口
+    root.MainLoop()  # 使主程序一直运转
+```
+
+* 我们经常需要找到我们选中的是哪个RadioButton，并返回它的值，利用RadioButton与事件的互动先获取触发事件的按钮，然后获取按钮对应的label即可实现。
+```Python
+#!/usr/bin/env python
+# encoding: gbk
+'''
+RadioButton
+'''
+
+from wx import *
+
+def judge(evt):
+    print evt.GetEventObject().GetLabel()
+
+if __name__ == "__main__":
+    root = App()  # 创建主程序
+    mainFrame = Frame(None)  # 在主程序之上建立一个一直显示的主窗口，用于与用户进行互动
+
+    mainFrameBoxSizer = GridSizer(3, 1)  # 将Frame划分为3行一列，也即从中间进行划分为上中下三部分。
+
+    b1 = RadioButton(mainFrame, label="rb1")
+    b2 = RadioButton(mainFrame, label="rb2")
+    b3 = RadioButton(mainFrame, label="rb3")
+
+    b1.Bind(EVT_RADIOBUTTON, handler=judge)  # 三个按钮均绑定judge事件
+    b2.Bind(EVT_RADIOBUTTON, handler=judge)
+    b3.Bind(EVT_RADIOBUTTON, handler=judge)
+
+    mainFrameBoxSizer.Add(b1)  # 向box中添加第一个控件
+    mainFrameBoxSizer.Add(b2)  # 向box中添加第二个控件
+    mainFrameBoxSizer.Add(b3)  # 向box中添加第三个控件
+
+    mainFrame.SetSizer(mainFrameBoxSizer)  # BoxSizer生效的最后一个步骤，依附的容器调用SetSizer方法。
+    mainFrame.Show()  # 显示主窗口
+    root.MainLoop()  # 使主程序一直运转
+```
+## 5、SpinButton类（用于代替C++中SpinButton类）
+```C++
+class SpinButton(wx._core.Control)
+ |  Proxy of C++ SpinButton class
+ 
+ |  __init__(self, *args, **kwargs)
+ |      __init__(self, Window parent, int id=-1, Point pos=DefaultPosition, 
+ |          Size size=DefaultSize, long style=SP_HORIZONTAL, 
+ |          String name=SPIN_BUTTON_NAME) -> SpinButton
+```
+
+* 左右调节按钮SpinButton类，构造函数在Button类基础上减少了label参数，对于其三个属性值Min、Max、Value均设置有Get/Set两个基本方法。增添了style参数，控制左右调节按钮是否水平，缺省默认为水平普通样式(样式名称以SP\_开头)。
+* IsVertical方法：确认按钮是否竖直，如果竖直返回true，反之false
+```C++
+|  IsVertical(*args, **kwargs)
+|      IsVertical(self) -> bool
+```
+
+* SetRange方法：同时设置Min、Max。
+* 由于SpinButton按钮是由两个按钮组合而成，所以其按钮绑定事件具有三种形式：EVT_SPIN_DOWN、EVT_SPIN_UP、EVT_SPIN，分别对应绑定下降按钮，绑定上升按钮，同时绑定两个按钮。
+```C++
+ |  SetRange(*args, **kwargs)
+ |      SetRange(self, int minVal, int maxVal)
+```
+```Python
+#!/usr/bin/env python
+# encoding: gbk
+'''
+SpinButton
+'''
+
+from wx import *
+
+def judge(evt):
+    print "HI"
+
+if __name__ == "__main__":
+    root = App()  # 创建主程序
+    mainFrame = Frame(None)  # 在主程序之上建立一个一直显示的主窗口，用于与用户进行互动
+
+    mainFrameBoxSizer = GridSizer(2, 2)  # 将Frame划分为3行一列，也即从中间进行划分为上中下三部分。
+
+    s1 = SpinButton(mainFrame, style=SP_3DSASH)  # 设置SpinButton为3Dsash样式
+
+    s1.Bind(EVT_SPIN_DOWN, handler=judge)  # 将SpinButton减少按钮绑定事件judge
+
+    mainFrameBoxSizer.Add(s1)  # 向box中添加第一个控件
+
+    mainFrame.SetSizer(mainFrameBoxSizer)  # BoxSizer生效的最后一个步骤，依附的容器调用SetSizer方法。
+    mainFrame.Show()  # 显示主窗口
+    root.MainLoop()  # 使主程序一直运转
+```
+## 6、ToggleButton类--开关按钮（用于代替C++中ToggleButton类）
+```C++
+class ToggleButton(AnyButton)
+ |  Proxy of C++ ToggleButton class
+ 
+ |  __init__(self, *args, **kwargs)
+ |      __init__(self, Window parent, int id=-1, String label=EmptyString, 
+ |          Point pos=DefaultPosition, Size size=DefaultSize, 
+ |          long style=0, Validator validator=DefaultValidator, 
+ |          String name=ToggleButtonNameStr) -> ToggleButton
+```
+* 开关按钮ToggleButton类，与普通按钮构造函数完全一致，但是与普通按钮之间的区别是它具有两种状态，一种是开（对应初始状态--False），一种是关（对应按下状态--True），不会自动弹起。其中含有一个属性值Value对应开（False）、关(True)的状态，设置有Set/Get两个基本方法。
+```Python
+#!/usr/bin/env python
+# encoding: gbk
+'''
+ToggleButton
+'''
+
+from wx import *
+
+def judge(evt):
+    print evt.GetEventObject().GetValue()
+
+if __name__ == "__main__":
+    root = App()  # 创建主程序
+    mainFrame = Frame(None)  # 在主程序之上建立一个一直显示的主窗口，用于与用户进行互动
+
+    mainFrameBoxSizer = GridSizer(2, 2)  # 将Frame划分为3行一列，也即从中间进行划分为上中下三部分。
+
+    t1 = ToggleButton(mainFrame, label="Toggle Button")  # 设置ToggleButton
+
+    t1.Bind(EVT_TOGGLEBUTTON, handler=judge)  # 将ToggleButton减少按钮绑定事件judge
+
+    mainFrameBoxSizer.Add(t1)  # 向box中添加第一个控件
+
+    mainFrame.SetSizer(mainFrameBoxSizer)  # BoxSizer生效的最后一个步骤，依附的容器调用SetSizer方法。
+    mainFrame.Show()  # 显示主窗口
+    root.MainLoop()  # 使主程序一直运转
+```
