@@ -155,7 +155,7 @@ class BitmapButton(Button)
  |      Create and show a button with a bitmap for the label.
 ```
 
-* 与普通的Button不同的是，BitmapButton没有label参数，取而代之的是bitmap参数，此时用到其中一个很关键的类叫做(Bitmap类)[https://github.com/cbhust8025/PythonLearn/new/master/Wxpython/BasicWidget]：
+* 与普通的Button不同的是，BitmapButton没有label参数，取而代之的是bitmap参数，此时用到其中一个很关键的类叫做[Bitmap类](https://github.com/cbhust8025/PythonLearn/new/master/Wxpython/BasicWidget)：
 ```C++
 class Bitmap(GDIObject)
  |  The wx.Bitmap class encapsulates the concept of a platform-dependent
