@@ -1,4 +1,4 @@
-# 基础控件之按钮篇
+# 基础控件之基本按钮篇
 >利用```print help(Tkinter.Button)```获取详细信息
 ```Python
 import Tkinter  # import the Tkinter module
