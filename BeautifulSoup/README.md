@@ -587,9 +587,9 @@ soup.find_all(has_class_but_no_id)
 
 >>- attrs参数：词典形式传入，含义为所想要查找节点的属性及属性值，此字典中的所有参数也可使用keyword参数形式进行传入。```attrs={"class":"title"}```等价于```class="title"```
 ```Python
-soup.find(attrs={"class": "title"})
+soup.find(attrs={"href": "title"})
 # 等价于下面语句
-soup.find(class="title")
+soup.find(href="title")
 ```
 
 >>- keyword参数：等价于attrs参数的一部分。如果一个指定名字的参数不是搜索内置的参数名,搜索时会把该参数当作指定名字tag的属性来搜索，也即不会主动判断查找的节点是否具有此属性，换言之，如果包含一个名字为 id 的参数,Beautiful Soup会搜索每个tag的”id”属性。同样的，属性值也可以使用正则表达式进行匹配，原理同name参数。
