@@ -28,12 +28,6 @@ class ListBox(wx._core.ControlWithItems)
  |      AppendAndEnsureVisible(self, String s)
 ```
 
->* Deselect方法：取消选中某一个item，传入想要取消item的索引
-```C++
- |  Deselect(*args, **kwargs)
- |      Deselect(self, int n)
-```
-
 >* Deselect/DeselectAll方法：取消选中某一个item，传入想要取消item的索引, itemToleaveSelected表示指定某个元素，取消选择其他所有的元素，当前元素若选中则依然选中，若未选中则不进行选中，-1表示取消选择所有元素。
 ```C++
  |  Deselect(*args, **kwargs)
@@ -41,12 +35,6 @@ class ListBox(wx._core.ControlWithItems)
  
   |  DeselectAll(*args, **kwargs)
  |      DeselectAll(self, int itemToLeaveSelected=-1)
-```
-
->* GetSelections方法：获取
-```C++
- |  Deselect(*args, **kwargs)
- |      Deselect(self, int n)
 ```
 
 >* Insert方法：插入某个item（字符串形式）到某个pos（int）位置上，
