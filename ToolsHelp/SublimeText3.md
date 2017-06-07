@@ -29,6 +29,20 @@
         "font.size": 16
 ```
 
+>* 修改侧边框的背景色：layer0.tint指的是侧边框的背景色，修改了这个为[0,0,0]之后需要调整sidebar-label的颜色为白色。
+```Json
+    {
+        "class": "sidebar_tree",
+        "row_padding": [8, 6],
+        "indent": 12,
+        "indent_offset": 17,
+        "indent_top_level": false,
+        "layer0.tint": [0, 0, 0],
+        "layer0.opacity": 1.0,
+        "dark_content": false
+    },
+```
+
 ## Tip 2、一些快捷键
 有时候，经常用到的快捷键，在此给予记录。
 
