@@ -51,3 +51,8 @@
 ### 3、shift + del ------------------- 删除当前行
 ### 4、shift + Tab ------------------- 去除缩进
 ### 5、Alt+shift+n  ------------------- 当前界面分成n屏
+
+## Tip 3、常用插件
+
+* ConvertToUTF8 : 解决中文乱码问题，支持自动转换保存成utf8
+* PackageResourceViewer: 打开sublime 内置的一些source文件
