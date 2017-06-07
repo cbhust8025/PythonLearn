@@ -17,7 +17,7 @@
 
 >* 输入PackageResourceViewer: Open Resource打开包资源目录
 
->* 选择Theme-Default, 选择Default.sublime-theme，默认主题设置。
+>* 选择Theme-Default, 选择Default.sublime-theme，默认主题设置。（设置主题颜色选择Color Scheme -Default/monokai.tmTheme）
 
 >* 搜索sidebar-label，进行如下设置
 ```Json
@@ -28,3 +28,12 @@
         "font_face": "YaHei Consolas hybrid",
         "font.size": 16
 ```
+
+## Tip 2、一些快捷键
+有时候，经常用到的快捷键，在此给予记录。
+
+### 1、Ctrl + /  ---------------------注释当前行，或者在选中内容后，注释选中的内容
+### 2、Ctrl + N-------------------新建文件
+### 3、shift + del ------------------- 删除当前行
+### 4、shift + Tab ------------------- 去除缩进
+### 5、Alt+shift+n  ------------------- 当前界面分成n屏
