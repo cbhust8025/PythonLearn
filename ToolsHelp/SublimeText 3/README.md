@@ -62,4 +62,95 @@
 * Python PEP8 Autoformat
 * ChineseLocalizations
 * BracketHighlighter：参考[教程](http://facelessuser.github.io/BracketHighlighter/customize/#configuring-brackets)
+> Preferences->Package Settings->BracketHighlighter->Bracket Settings,用户设置如下：
+```Json
+{
+	"show_in_minimap": true,
+	// "default" style defines attributes that
+    // will be used for any style that does not
+    // explicitly define that attribute.  So if
+    // a style does not define a color, it will
+    // use the color from the "default" style.
+    // style	Highlight style. 
+    	// Available options are: 
+    // solid, outline, underline, none. 
+    	// ST3 has additional styles: 
+    // thin_underline, squiggly, stippled.
+    "bracket_styles": {
+        // "default" and "unmatched" styles are special
+        // styles. If they are not defined here,
+        // they will be generated internally with
+        // internal defaults.
+
+        // "default" style defines attributes that
+        // will be used for any style that does not
+        // explicitly define that attribute.  So if
+        // a style does not define a color, it will
+        // use the color from the "default" style.
+        "default": {
+            "icon": "dot",
+            // BH1's original default color for reference
+            // "color": "entity.name.class",
+            "color": "brackethighlighter.default",
+            "style": "outline"
+        },
+
+        // This particular style is used to highlight
+        // unmatched bracket pairs.  It is a special
+        // style.
+        "unmatched": {
+            "icon": "question",
+            "color": "brackethighlighter.unmatched",
+            // "style": "outline"
+        },
+        // User defined region styles
+        "curly": {
+            "icon": "curly_bracket",
+            "color": "brackethighlighter.curly"
+            // "style": "underline"
+        },
+        "round": {
+            "icon": "round_bracket",
+            "color": "brackethighlighter.round"
+            // "style": "underline"
+        },
+        "square": {
+            "icon": "square_bracket",
+            "color": "brackethighlighter.square"
+            // "style": "underline"
+        },
+        "angle": {
+            "icon": "angle_bracket",
+            "color": "brackethighlighter.angle"
+            // "style": "underline"
+        },
+        "tag": {
+            "icon": "tag",
+            "color": "brackethighlighter.tag"
+            // "style": "underline"
+        },
+        "c_define": {
+            "icon": "hash",
+            "color": "brackethighlighter.c_define"
+            // "style": "underline"
+        },
+        "single_quote": {
+            "icon": "single_quote",
+            "color": "brackethighlighter.quote"
+            // "style": "underline"
+        },
+        "double_quote": {
+            "icon": "double_quote",
+            "color": "brackethighlighter.quote"
+            // "style": "underline"
+        },
+        "regex": {
+            "icon": "star",
+            "color": "brackethighlighter.quote"
+            // "style": "underline"
+        }
+    }
+}
+
+```
 * SideBarEnhancements
