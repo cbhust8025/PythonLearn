@@ -60,3 +60,6 @@
 * PackageResourceViewer: 打开sublime 内置的一些source文件
 * SublimeTmpl
 * Python PEP8 Autoformat
+* ChineseLocalizations
+* BracketHighlighter：参考[教程](http://facelessuser.github.io/BracketHighlighter/customize/#configuring-brackets)
+* SideBarEnhancements
