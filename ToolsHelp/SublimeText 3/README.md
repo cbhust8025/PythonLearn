@@ -86,27 +86,7 @@
 ```Json
 {
 	"show_in_minimap": true,
-	// "default" style defines attributes that
-    // will be used for any style that does not
-    // explicitly define that attribute.  So if
-    // a style does not define a color, it will
-    // use the color from the "default" style.
-    // style	Highlight style. 
-    	// Available options are: 
-    // solid, outline, underline, none. 
-    	// ST3 has additional styles: 
-    // thin_underline, squiggly, stippled.
     "bracket_styles": {
-        // "default" and "unmatched" styles are special
-        // styles. If they are not defined here,
-        // they will be generated internally with
-        // internal defaults.
-
-        // "default" style defines attributes that
-        // will be used for any style that does not
-        // explicitly define that attribute.  So if
-        // a style does not define a color, it will
-        // use the color from the "default" style.
         "default": {
             "icon": "dot",
             // BH1's original default color for reference
