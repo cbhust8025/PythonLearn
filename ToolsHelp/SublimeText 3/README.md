@@ -60,8 +60,27 @@
 * PackageResourceViewer: 打开sublime 内置的一些source文件
 * SublimeTmpl
 * Python PEP8 Autoformat
+```Json
+[
+	{ "keys": ["f5"], "command": "build" },
+	{ "keys": ["ctrl+alt+b"], "command": "toggle_side_bar" },
+]
+
+```
+
+* SublimeCodeIntel
+
 * ChineseLocalizations
+* Anaconda
+> user
+```Json
+{
+    "python_interpreter": "C:\\Python27\\python.exe",  // 这里输入你的python程序路径
+    "auto_python_builder_enabled": false,
+}
+```
 * BracketHighlighter：参考[教程](http://facelessuser.github.io/BracketHighlighter/customize/#configuring-brackets)
+
 > Preferences->Package Settings->BracketHighlighter->Bracket Settings,用户设置如下：
 ```Json
 {
@@ -156,12 +175,32 @@
 * SideBarEnhancements
 
 
-## 自定义快捷键：
+## 自定义设置：
+### 1、快捷键
 Preferences->KeyMap settings->User
 ```Json
 [
 	{ "keys": ["f5"], "command": "build" },
 	{ "keys": ["ctrl+alt+b"], "command": "toggle_side_bar" },
 ]
+
+```
+
+### 2、用户设置
+```Json
+{
+	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+	"font_size": 18,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	// The number of spaces a tab is considered equal to
+    "tab_size": 4,
+
+    // Set to true to insert spaces when tab is pressed
+    "translate_tabs_to_spaces": true,
+    "draw_white_space": "all",
+}
 
 ```
