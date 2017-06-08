@@ -154,3 +154,14 @@
 
 ```
 * SideBarEnhancements
+
+
+## 自定义快捷键：
+Preferences->KeyMap settings->User
+```Json
+[
+	{ "keys": ["f5"], "command": "build" },
+	{ "keys": ["ctrl+alt+b"], "command": "toggle_side_bar" },
+]
+
+```
