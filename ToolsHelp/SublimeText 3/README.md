@@ -79,6 +79,7 @@
     "auto_python_builder_enabled": false,
 }
 ```
+
 * BracketHighlighter：参考[教程](http://facelessuser.github.io/BracketHighlighter/customize/#configuring-brackets)
 
 > Preferences->Package Settings->BracketHighlighter->Bracket Settings,用户设置如下：
