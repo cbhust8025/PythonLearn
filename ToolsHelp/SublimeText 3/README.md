@@ -58,3 +58,5 @@
 
 * ConvertToUTF8 : 解决中文乱码问题，支持自动转换保存成utf8
 * PackageResourceViewer: 打开sublime 内置的一些source文件
+* SublimeTmpl
+* Python PEP8 Autoformat
