@@ -126,6 +126,16 @@ Configure, KeyPress, Key, Unmap, Deactivate, KeyRelease Visibility, Destroy, Lea
 
 >>- add参数：布尔型参数，用于指示当前绑定的函数是否在执行完了之后继续执行其他的绑定函数，或者替代之前的绑定函数。
 
+
+>>- 传入调用函数的event参数，函数中的这个event是事件对象类型：具有以下各种属性：
+>>>- widget  产生event的实例，不是名字，所有对象拥有
+>>>- x，y     鼠标位置，单位：像素
+>>>- x_root，y_root       鼠标相对于屏幕左上角的位置，像素
+>>>- char        仅键盘事件，string
+>>>- num     按钮num，仅鼠标事件
+>>>- width，height        widget新大小
+>>>- type        事件类型
+
 >- 其他类似方法：
 >>- bind_all方法:将所有控件都绑定某个事件到某个函数上面。
 ```C++
